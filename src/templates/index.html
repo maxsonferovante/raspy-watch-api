@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Video Streaming With Node</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #videoPlayer {
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        #videoName {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 id="videoName">Nome do Vídeo</h2>
+        <video id="videoPlayer" controls muted="muted" autoplay>
+            <source src="/watch" type="video/mp4" />
+        </video>
+    </div>
+    <script>
+        // Obtenha o elemento h2 pelo ID
+        const videoNameElement = document.getElementById('videoName');
+
+        // Obtenha o nome do vídeo do cabeçalho X-Video-Name
+        const videoName = res.headers['x-video-name'];
+        if (!videoName) {
+            videoNameElement.innerText = 'Sem vídeo para reproduzir';
+        }
+        // Atualize o conteúdo do elemento h2
+        videoNameElement.innerText = videoName;
+    </script>
+</body>
+
+</html>
